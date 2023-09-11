@@ -1,12 +1,31 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash, faShare, faUser} from "@fortawesome/free-solid-svg-icons";
 
 const MemberCard = ({profileImage, name, phone, email }) => {  
 
     const [isDropdown, setIsDropdown] = useState(false)
+    const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    // Add a click event listener to the document
+    document.addEventListener('click', handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  });
+
+  const handleClickOutside = (event) => {
+    // Check if the click event occurred outside of the dropdown component
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsDropdown(false);
+    }
+  };
+
 
   return (
     <article className="w-[100%] md:w-1/4 h-48 shadow-sm p-4 border-[#ddd] bg-white border rounded-lg">
@@ -19,13 +38,16 @@ const MemberCard = ({profileImage, name, phone, email }) => {
                 onClick={() => setIsDropdown(!isDropdown)}>
                 ...
             </button>
-            {isDropdown && <div className="absolute w-32 bg-white p-4 rounded-sm transition-all 
-                duration-300 ease-in shadow right-0 top-4 list-none" role="menu">
-                <li className="py-1"><FontAwesomeIcon icon={faEdit}  color="orange"/> Edit</li>
-                <li className="py-1"><FontAwesomeIcon icon={faTrash} color="red"/> Delete</li>
-                <li className="py-1"><FontAwesomeIcon icon={faShare} color="blue"/> Share</li>
-            </div>
-        }
+            {   isDropdown && 
+                (
+                    <div ref={dropdownRef} className="absolute w-32 bg-white p-4 rounded-sm transition-all 
+                        duration-300 ease-in shadow right-0 top-4 list-none" role="menu">
+                        <li className="py-1"><FontAwesomeIcon icon={faEdit}  color="orange"/> Edit</li>
+                        <li className="py-1"><FontAwesomeIcon icon={faTrash} color="red"/> Delete</li>
+                        <li className="py-1"><FontAwesomeIcon icon={faShare} color="blue"/> Share</li>
+                    </div>
+                )
+            }
         </div>
 
         {/* profile pics */}
