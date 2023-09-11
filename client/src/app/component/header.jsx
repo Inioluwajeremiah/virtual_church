@@ -4,6 +4,7 @@ import {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark, faUser, faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+// import logo from '/logo.jpg'
 
 const Header = () => {
 
@@ -110,7 +111,11 @@ const Header = () => {
   return (
     <header className='container mx-auto fixed top-0 right-0 left-0 w-full h-20 z-10' >
         <div className='container mx-auto w-full h-full px-4 flex flex-row items-center justify-between bg-black'>
-            <Link role='logo' href={'/'} className='text-white px-2'>Virtual Church</Link>
+            <Link role='logo' href={'/'} className='text-white px-2'>
+                <img src={'/logo.jpg'} alt="Men of Power Are Feared Ambassador" 
+                    className='w-16 h-16 rounded-full' 
+                />
+            </Link>
 
             {/* profile pic and dropdown */}
             <div className=' flex flex-row justify-between items-center '>
