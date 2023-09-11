@@ -9,15 +9,15 @@ const MemberCard = ({profileImage, name, phone, email }) => {
     const [isDropdown, setIsDropdown] = useState(false)
     const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    // Add a click event listener to the document
-    document.addEventListener('click', handleClickOutside);
+    useEffect(() => {
+        // Add a click event listener to the document
+        document.addEventListener('click', handleClickOutside);
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  });
+        // Clean up the event listener when the component unmounts
+        return () => {
+        document.removeEventListener('click', handleClickOutside);
+        };
+    });
 
   const handleClickOutside = (event) => {
     // Check if the click event occurred outside of the dropdown component

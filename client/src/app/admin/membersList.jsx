@@ -70,7 +70,7 @@ const MembersList = () => {
          transition-all duration-300 ease-in-out my-8 `}>
 
           {/* header */}
-          <div className="flex flex-row items-center justify-around border-b py-2 mb-8">
+          <div className="flex flex-col gap-2 md:flex-row items-center justify-around border-b py-2 mb-8">
             <div className=" border rounded-lg p-2">
               <input type="text" className=" outline-none" />
               <button><FontAwesomeIcon icon={faSearch} /></button>

@@ -1,9 +1,9 @@
-import React from 'react'
+'use client'
 
 const MemberDetails = () => {
   return (
     <div>
-        
+        <p>ghjh</p>
     </div>
   )
 }

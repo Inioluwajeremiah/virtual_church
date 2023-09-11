@@ -15,6 +15,7 @@ const Admin = () => {
 
   const handleNavBtns = (index) => {
     set_active_tab(index)
+    set_toggle_menu(!toggle_menu)
   } 
 
   const toggleMenu = () => {
@@ -56,7 +57,7 @@ const Admin = () => {
 
         {/* <div className='container mx-auto relative border-4  border-red-700'>       */}
           <nav 
-            className={`absolute top-36 w-[80%] border flex flex-col h-screen overflow-y-scroll
+            className={`fixed top-36 w-[80%] border flex flex-col h-screen overflow-y-scroll
             bg-white md:fixed md:w-[23%]  
               ${toggle_menu ? 'block justify-self-start' : 'hidden'}
             `}
@@ -94,12 +95,12 @@ const Admin = () => {
           </nav>
         {/* </div> */}
 
-        <div  className={`absolute top-36 w-[20%] flex flex-col h-screen
+        {/* <div  className={`absolute top-36 w-[20%] flex flex-col h-screen
            bg-white right-0 md:hidden 
             ${toggle_menu ? 'block justify-self-start' : 'hidden'}
           `} onClick={() => set_toggle_menu(!toggle_menu)}
         >
-        </div>
+        </div> */}
 
         {/* main content */}
         <main className={` mx-auto ${toggle_menu ? 'md:ml-[24%] md:w-[76%]' : 'ml-0 w-[100%]'}`}>
