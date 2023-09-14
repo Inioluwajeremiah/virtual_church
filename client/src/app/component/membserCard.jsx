@@ -19,12 +19,12 @@ const MemberCard = ({profileImage, name, phone, email }) => {
         };
     });
 
-  const handleClickOutside = (event) => {
-    // Check if the click event occurred outside of the dropdown component
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsDropdown(false);
-    }
-  };
+    const handleClickOutside = (event) => {
+        // Check if the click event occurred outside of the dropdown component
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdown(false);
+        }
+    };
 
 
   return (

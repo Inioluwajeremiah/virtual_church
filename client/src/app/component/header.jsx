@@ -15,67 +15,67 @@ const Header = () => {
     const navItem = [
         {
             title: "Children",
-            link: "/dasboard/children"
+            link: "/children"
         },
         {
             title: "Men",
-            link: "/dasboard/men"
+            link: "/men"
         },
         {
             title: "Women",
-            link: "/dasboard/women"
+            link: "/women"
         },
         {
             title: "Ushering",
-            link: "/dasboard/ushering"
+            link: "/ushering"
         },
         {
             title: "Protocol",
-            link: "/dasboard/protocol"
+            link: "/protocol"
         },
         {
             title: "Welfare",
-            link: "/dasboard/welfare"
+            link: "/welfare"
         },
         {
             title: "Transport & Mobilization",
-            link: "/dasboard/transport-and-mobilization"
+            link: "/transport"
         },
         {
             title: "Choir",
-            link: "/dasboard/choir"
+            link: "/choir"
         },
         // {
         //     title: "",
-        //     link: "/dasboard/"
+        //     link: "/"
         // },
         // {
         //     title: "",
-        //     link: "/dasboard/"
+        //     link: "/"
         // },
         {
             title: "Ambassador's Youth Fellowship",
-            link: "/dasboard/ambassadors-youth-fellowship"
+            link: "/ayf"
         },
         {
             title: "Outreach/Prayer",
-            link: "/dasboard/outreach-prayer"
+            link: "/outreach"
         },
         {
             title: "Sanctuary",
-            link: "/dasboard/sanctuary"
+            link: "/sanctuary"
         },
         {
             title: "Media/Publication",
-            link: "/dasboard/media-publication"
+            link: "/media_publication"
         },
         {
             title: "Testimony",
-            link: "/dasboard/testimony"
+            link: "/testimony"
         },
         {
             title: "Drama",
-            link: "/dasboard/drama"
+            link: "/drama"
         }
     ]
 
@@ -113,7 +113,7 @@ const Header = () => {
         <div className='container mx-auto w-full h-full px-4 flex flex-row items-center justify-between bg-black'>
             <Link role='logo' href={'/'} className='text-white px-2'>
                 <img src={'/logo.jpg'} alt="Men of Power Are Feared Ambassador" 
-                    className='w-16 h-16 rounded-full' 
+                    className=' w-14 h-14 rounded-full' 
                 />
             </Link>
 
@@ -121,26 +121,27 @@ const Header = () => {
             <div className=' flex flex-row justify-between items-center '>
 
                 <div role="region" aria-label="User Profile" className='flex flex-row items-center mr-2'>  
-                    {/* profile pics */}
-                    <div role="img" aria-label="Profile picture of Jane Doe" 
+
+                    {/* dropdown */}
+                    <button onClick={()=> setIsDropdownDepartment(!isDropdownDepartment)}
+                        className='p-4 rounded-full text-white items-center'
+                    >Departments&nbsp;
+                        {isDropdownDepartment ? <FontAwesomeIcon icon={faCaretUp}/> : <FontAwesomeIcon icon={faCaretDown}/>}
+                    </button>
+                     {/* profile pics */}
+                     <div role="img" aria-label="Profile picture of Jane Doe" 
                         className='flex flex-row justify-center items-center w-12 h-12  
                         rounded-full bg-[#cac0b3] mr-1'
                         >
                         <FontAwesomeIcon icon={faUser} size='lg'/>
                         {/* <img src="" alt="Profile picture of Jane Doe"/> */}
                     </div>
-
-                    {/* dropdown */}
-                    <button onClick={()=> setIsDropdownDepartment(!isDropdownDepartment)}
-                        className='p-4 rounded-full text-white items-center'
-                    >
-                        {isDropdownDepartment ? <FontAwesomeIcon icon={faCaretUp}/> : <FontAwesomeIcon icon={faCaretDown}/>}
-                    </button>
                 </div>
 
                 {/* { isDropdownDepartment ? */}
-                <nav className={` absolute w-[70%] md:w-[25%] h-[100vh] overflow-y-scroll flex flex-col bg-white right-0 -z-50
-                    shadow-md border transition-all duration-200 ease-linear ${isDropdownDepartment ? 'top-20 ' : '-top-[100vh]'}`}>
+                <nav className={` absolute w-[70%] md:w-[25%] h-[100vh]  flex flex-col bg-white 
+                    right-0 -z-50 shadow-md border transition-all duration-200 ease-linear 
+                    ${isDropdownDepartment ? 'top-20 overflow-y-scroll' : '-top-[100vh]'}`}>
                     <NavLink/>
                 </nav>
                 
